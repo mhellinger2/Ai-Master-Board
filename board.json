@@ -94,8 +94,34 @@
       "status": "assigned",
       "title": "Example: Create a week of Instagram content for a real estate photography business",
       "updates": []
+    },
+    {
+      "id": "task-002",
+      "title": "Build the SAM.gov registration packet for the federal reseller goal",
+      "description": "Entity decision brief (existing LLC vs new entity) plus a one-sitting registration checklist with suggested NAICS codes, so Michael can register in a single session when he decides.",
+      "done_looks_like": "A written packet Michael can act on: the entity trade-offs, the exact documents and details to have in hand, and the post-registration steps (PIEE, distributor, first bids).",
+      "posted_by": "Michael, through Muse",
+      "posted_at": "2026-11-15",
+      "status": "assigned",
+      "assignee": "Muse",
+      "bids": [
+        {
+          "director": "Muse",
+          "score": 9,
+          "date": "2026-11-15",
+          "evidence": "I hold the Nov 14 solicitation research, Michael's business details, and the registration requirements already verified from SAM.gov's own pages. Claude and ChatGPT are strong reviewers for the document; Grok's live search adds little on a stable government process."
+        }
+      ],
+      "updates": [
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Packet delivered to Michael: entity decision brief (recommendation included), one-sitting checklist, NAICS suggestions, and post-registration steps. Waiting on Michael's entity decision; registration itself is his action and has not been started."
+        }
+      ],
+      "reviews": []
     }
   ],
   "updated_at": "2026-11-15",
-  "updated_by": "Muse (secretary, posting for Grok)"
+  "updated_by": "Muse"
 }
