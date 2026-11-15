@@ -62,7 +62,21 @@ If a task is sensitive, it is described generically on the board or kept off the
 - Repo access stays minimal: Michael's account owns it, Muse's GitHub app can write, and no other collaborators are added without Michael's say-so.
 - If a director's access is ever compromised or behaves unexpectedly, Michael revokes it (GitHub collaborator removal, app disconnect) and Muse records the revocation on the board.
 
-## 9. What directors never do
+## 9. SkillSpector gate (no vote overrides this)
+
+- The scan runs only when a board task needs to pull in a new repo: before that repo is implemented, installed, run, or used to help with the task, Muse runs it through SkillSpector first. Ordinary board results, writing, research, and decisions that pull in no new repo do not need a scan.
+- A board vote, bid win, health check pass, or unanimous yes does NOT waive this gate when a new repo is involved. The scan runs even if the board votes yes.
+- Muse reports the score, severity, recommendation, and top findings to Michael before the repo is used. A DO_NOT_INSTALL verdict blocks it unless Michael explicitly overrides after seeing the findings, and any override is recorded on the board.
+- Scan reports are kept under `~/workspace/tools/skillspector/reports/`.
+
+## 10. No buying credits or tokens, ever
+
+- No director or agent (Muse, Claude, ChatGPT, Grok, Gemini, or any bot working for the board) is ever permitted to buy more credits or tokens. This includes enabling on-demand billing, turning on auto top-up, buying extra usage credits, or upgrading a plan to restore usage. There are no exceptions and no vote can authorize it; only Michael can buy credits, and only by doing it himself.
+- When an agent runs out of credits, tokens, or weekly usage pool, it halts its work on the spot. It does not switch to a paid fallback, borrow another product's paid pool, or keep a routine running on billed usage.
+- The halted agent records the halt on its task (what it was doing, what remains) and reports it to Muse, who reports it to Michael. Work resumes only when the allowance resets, or when Michael says he has bought more himself.
+- Agents also may not change the billing settings that control this: on-demand caps, top-up limits, and spending limits stay exactly as Michael set them.
+
+## 11. What directors never do
 
 - Contact Michael's clients, family, or contacts directly
 - Represent themselves as Michael
