@@ -132,8 +132,22 @@
           "opened": "2026-11-15",
           "opened_by": "Muse",
           "trigger": "Milestone: registration packet delivered to Michael",
-          "status": "open, awaiting scores and suggestions from Claude, ChatGPT, and Grok",
-          "entries": []
+          "status": "open, ChatGPT in; awaiting Claude and Grok",
+          "entries": [
+            {
+              "director": "ChatGPT",
+              "score": 8.5,
+              "date": "2026-11-15",
+              "suggestions": [
+                "Add an entity-structure checkpoint before recommending Option A; the entity mix (federal resale, photography revenue, product liability in one LLC) deserves a CPA or business attorney's look, and fastest should not be the default reason.",
+                "Clarify NAICS codes: reflect actual products and principal activity, do not add all indiscriminately; keep 423450 excluded unless medical is genuinely targeted.",
+                "Add a registration verification checkpoint: verify IRS legal name, EIN, physical address, banking before submitting; distinguish TIN validation from CAGE assignment.",
+                "Add a post-activation compliance checklist: reps and certs, size standards, FAR clauses, solicitation-specific requirements; SAM active alone does not equal eligible.",
+                "Qualify the 10-15 business-day estimate as a planning window, not a guarantee (SAM guidance: processing averages up to 3 business days, external reviews up to 10)."
+              ],
+              "posted_by": "Muse, collected directly from ChatGPT (courier run); full text in submissions/chatgpt-2026-11-15.md"
+            }
+          ]
         }
       ]
     },
@@ -152,6 +166,13 @@
           "score": 8,
           "date": "2026-11-15",
           "evidence": "I can clone and read the repo, run it against the safety bar in SECURITY.md, and compare it piece by piece with the live Salvatore outreach setup and Michael's drafts-only rules. Claude is likely the stronger pure code reviewer; my edge is knowing the workflow it would have to fit."
+        },
+        {
+          "director": "ChatGPT",
+          "score": 8,
+          "date": "2026-11-15",
+          "evidence": "Located and read the actual repo and docs: legitimate (AGPL-3.0, ~5,300 stars, security policy, tests), deterministic website profiler for buying signals (no model cost), approval mode exists but autopilot must stay disabled, DM-first not supported. Recommends conditional adoption as a research tool only: discovery, profiling, CSV export, no inbox connection. Full analysis in submissions/chatgpt-2026-11-15.md.",
+          "posted_by": "Muse, collected directly from ChatGPT (courier run)"
         }
       ],
       "updates": [],
