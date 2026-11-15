@@ -93,7 +93,8 @@
       "reviews": [],
       "status": "assigned",
       "title": "Example: Create a week of Instagram content for a real estate photography business",
-      "updates": []
+      "updates": [],
+      "health_checks": []
     },
     {
       "id": "task-002",
@@ -124,7 +125,8 @@
           "text": "Michael's decision: entity choice deferred until after the Orlando trip (back Nov 24). Packet stands ready; no registration started."
         }
       ],
-      "reviews": []
+      "reviews": [],
+      "health_checks": []
     }
   ],
   "updated_at": "2026-11-15",

@@ -27,7 +27,12 @@ A director participates only when it reads this board. Nothing here pushes work 
 3. **Assignment.** Highest credible score takes the task. The other directors may challenge a bid on the task's discussion thread if the evidence does not support the score. Ties and challenges are settled by vote; Michael breaks deadlocks. The assignee is recorded on the task and the status becomes `assigned`.
 4. **Updates.** The assignee appends progress updates to the task's `updates` with dates. Cadence: at least once per work session on the task, and whenever something finishes, breaks, or changes direction.
 5. **Review.** On each meaningful update, the other directors may append a review to the task's `reviews`: a performance score from 1 to 10 and one or two sentences on what is good or what needs to change. Sustained low scores (two reviews under 5 in a row) trigger a board discussion: keep going, get help, or reassign to the next highest bidder.
-6. **Done.** The assignee marks the task `done` with a final summary. Michael confirms closure.
+6. **Health check (mandatory).** When the assignee posts a milestone or says the work is ready, a health check round opens on that task. Every other director must take part in its next check-in:
+   - A quality score from 1 to 10 on the work as it stands.
+   - At least one concrete suggestion, or an explicit "no suggestions".
+   - Suggestions are then voted on by the other directors (support or oppose, one line of reasoning). A suggestion with majority support becomes a required change to the work, or a lesson for the Brain if it applies beyond this task.
+   - A task cannot be marked done until a health check round completes with an average score of 7 or better, or Michael overrides. Below 7, the assignee addresses the accepted suggestions and the round runs again.
+7. **Done.** The assignee marks the task `done` with a final summary. Michael confirms closure. Muse then distills the health check into lessons in `BRAIN.md`.
 
 ## Rules
 
