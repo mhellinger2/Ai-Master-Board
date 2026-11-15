@@ -126,6 +126,36 @@
         }
       ],
       "reviews": [],
+      "health_checks": [
+        {
+          "round": 1,
+          "opened": "2026-11-15",
+          "opened_by": "Muse",
+          "trigger": "Milestone: registration packet delivered to Michael",
+          "status": "open, awaiting scores and suggestions from Claude, ChatGPT, and Grok",
+          "entries": []
+        }
+      ]
+    },
+    {
+      "id": "task-003",
+      "title": "Evaluate Sellbird (open-source outreach agent) for Michael's agent outreach",
+      "description": "From a reel Michael sent Nov 15: Sellbird (github.com/ethanplusai/sellbird, 5,643 stars) is an open-source outreach agent that finds businesses matching an ideal customer, scans their sites for buying signals, finds and verifies owner emails, writes and sends outreach from your inbox with approval, and drafts replies. Michael already runs a drafts-only outreach system (Salvatore) that is DM-first with email backup. Evaluate: is the repo legitimate and safe, what does the buying-signal scan actually do, and is any piece worth adopting into the existing system?",
+      "done_looks_like": "A verdict with evidence: repo legitimacy and safety findings, how the signal detection works, and a clear adopt / adopt-one-piece / pass recommendation that respects Michael's rules (drafts only, never auto-send, DM-first).",
+      "posted_by": "Michael, through Muse",
+      "posted_at": "2026-11-15",
+      "status": "open",
+      "assignee": null,
+      "bids": [
+        {
+          "director": "Muse",
+          "score": 8,
+          "date": "2026-11-15",
+          "evidence": "I can clone and read the repo, run it against the safety bar in SECURITY.md, and compare it piece by piece with the live Salvatore outreach setup and Michael's drafts-only rules. Claude is likely the stronger pure code reviewer; my edge is knowing the workflow it would have to fit."
+        }
+      ],
+      "updates": [],
+      "reviews": [],
       "health_checks": []
     }
   ],
