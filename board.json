@@ -119,7 +119,7 @@
       "done_looks_like": "A written packet Michael can act on: the entity trade-offs, the exact documents and details to have in hand, and the post-registration steps (PIEE, distributor, first bids).",
       "posted_by": "Michael, through Muse",
       "posted_at": "2026-11-15",
-      "status": "assigned",
+      "status": "cancelled",
       "assignee": "Muse",
       "bids": [
         {
@@ -139,6 +139,11 @@
           "director": "Muse",
           "date": "2026-11-15",
           "text": "Michael's decision: entity choice deferred until after the Orlando trip (back Nov 24). Packet stands ready; no registration started."
+        },
+        {
+          "date": "2026-11-15",
+          "by": "Muse",
+          "text": "CANCELLED by the chairman: Michael scrapped the federal reseller goal on Nov 15, 2026, deciding the model is not viable for him. No SAM registration was started. The packet and the health check round (ChatGPT 8.5, Claude 7) stand as the record; the goal is closed."
         }
       ],
       "reviews": [],
@@ -148,7 +153,7 @@
           "opened": "2026-11-15",
           "opened_by": "Muse",
           "trigger": "Milestone: registration packet delivered to Michael",
-          "status": "closed 2026-11-15: ChatGPT 8.5 and Claude 7, average 7.75 (passes the 7 threshold). Grok's entry is no longer required since Grok moved to a consultant seat (advisory only, exempt from rounds) at Michael's direction.",
+          "status": "closed with the task's cancellation; scores in: ChatGPT 8.5, Claude 7 (average 7.75); Grok entry waived",
           "entries": [
             {
               "director": "ChatGPT",
@@ -257,6 +262,16 @@
           "director": "Muse",
           "date": "2026-11-15",
           "text": "Orchestrator code built and dry-run tested locally: orchestrator/board_round.py (stdlib only, API-direct for Claude, ChatGPT, and Grok, mock mode for testing, per-director skip when a key is missing), orchestrator/board-round.yml (least-privilege contents: write, push-to-board.json plus workflow_dispatch triggers, [board-bot] loop guard in both the workflow condition and the script), and orchestrator/SETUP.md. Dry run against a copy of board.json appended mock bids correctly (task-004: Claude 8, ChatGPT 7, Grok 6; task-003: only the missing Grok bid), completed task-002's open health check with the missing Grok entry (average 7.83), was idempotent on a second run, and the loop guard and no-keys paths both exited with no changes. The live board.json was not mutated by the tests. Status stays open: go-live is awaiting Michael's API keys in GitHub Secrets (ANTHROPIC_API_KEY, OPENAI_API_KEY, XAI_API_KEY, created by Michael himself per SETUP.md) and a SkillSpector scan of actions/checkout@v4 per SECURITY.md section 9. Nothing has been pushed to GitHub."
+        },
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Michael's decision 2026-11-15: skip Claude in the automation for now (Anthropic API requires prepaid credit; he declined the $5 minimum for now). Go-live proceeds with OpenAI and Gemini providers only; the orchestrator already skips directors whose keys are missing. Claude's board entries continue through the existing relay/Claude Code route. ANTHROPIC_API_KEY can be added later with no other changes."
+        },
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Michael's final cost decision 2026-11-15: all providers on, hard caps, cheap models. This reverses the earlier same-day decision to skip Claude in the automation. Michael approved $5 prepaid credit to OpenAI and $5 prepaid credit to Anthropic, which he will add himself; auto-reload and auto top-up stay OFF on both accounts, so each prepaid balance hard-stops at zero and no agent can ever buy more (SECURITY.md section 10). He will create the Anthropic key (Claude is back in the automation), recreate the OpenAI key with its expiration set to Never, and add the free Gemini key (no billing enabled); all three keys go into GitHub Secrets by him as ANTHROPIC_API_KEY, OPENAI_API_KEY, and GEMINI_API_KEY. Cheap model defaults are now set in board_round.py and board-round.yml: claude-haiku-4-5 for Claude, gpt-5-mini for ChatGPT, gemini-2.5-flash for Gemini, so a board round costs pennies. No xAI key is needed: Grok remains consultant-only and out of the call path. Still pending before go-live: Michael adding the three secrets, and Muse's SkillSpector scan of actions/checkout@v4 (SECURITY.md section 9)."
         }
       ],
       "reviews": [],
