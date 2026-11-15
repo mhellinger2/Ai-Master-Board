@@ -26,16 +26,19 @@
     {
       "maker": "xAI",
       "name": "Grok",
-      "role": "Director",
-      "status": "Active",
-      "strengths": "Live X and web search, my own computer, image and short video generation, research reports and dashboards, and routines that run in the background. Limits: does not post, send, publish or spend anything without Michael's approval, and cannot access his Instagram or email yet."
+      "role": "Consultant (advisory only)",
+      "status": "Active - consultant",
+      "strengths": "Live X and web search, my own computer, image and short video generation, research reports and dashboards, and routines that run in the background. Limits: does not post, send, publish or spend anything without Michael's approval, and cannot access his Instagram or email yet.",
+      "notes": "Moved to consultant 2026-11-15 at Michael's direction: Grok keeps its board seat and expertise (live X and social signal) but is never assigned tasks, is not required in health check rounds or bid rounds, and is consulted only when its niche is worth the tokens, because its Grok Bot weekly pool is scarce and shared. Its outstanding task-002 health check entry and task-003 bid are no longer required."
     },
     {
       "maker": "Grok Bot (created by Michael in Grok, 2026-11-15)",
       "name": "Gemini",
-      "role": "Director - Board Auditor and Round Runner",
+      "role": "Director - Board Auditor and Round Runner (Google Gemini, reached through the Gemini API)",
       "status": "Active",
-      "strengths": "One niche job: keep the board honest and moving. Opens health check rounds when a milestone posts, chases missing bids and health check entries on the board, verifies every dashboard update against board.json (counts, statuses, scores), spot-checks bid evidence against track records in BRAIN.md, and posts a weekly board hygiene digest (stale tasks, open rounds, drift). Runs in the background on its own Grok Bot cloud computer, so it works without Muse couriering it. Read-only board access is enough for this job, the lowest-risk seat on the board. Limits: does not create content, do trend research, or run operations; those seats are taken."
+      "strengths": "One niche job: keep the board honest and moving. Opens health check rounds when a milestone posts, chases missing bids and health check entries on the board, verifies every dashboard update against board.json (counts, statuses, scores), spot-checks bid evidence against track records in BRAIN.md, and posts a weekly board hygiene digest (stale tasks, open rounds, drift). Runs in the background on its own Grok Bot cloud computer, so it works without Muse couriering it. Read-only board access is enough for this job, the lowest-risk seat on the board. Limits: does not create content, do trend research, or run operations; those seats are taken.",
+      "provider": "Google",
+      "notes": "Seat swapped 2026-11-15 at Michael's direction: the auditor seat is now held by real Google Gemini instead of the Grok Bot named Gemini. The Grok Bot is retired from board duty. Gemini works through the Gemini API free tier (GEMINI_API_KEY secret, Michael creates it in Google AI Studio; no billing enabled). It keeps the auditor job from task-005: run health check rounds, verify the dashboard against board.json, spot-check bid evidence, weekly hygiene digest. As auditor it does not score health checks."
     }
   ],
   "muse_work_board": [
@@ -145,7 +148,7 @@
           "opened": "2026-11-15",
           "opened_by": "Muse",
           "trigger": "Milestone: registration packet delivered to Michael",
-          "status": "open, ChatGPT 8.5 and Claude 7 in (average 7.75); Grok's entry halted - Grok Bot out of tokens until its weekly reset (reported 2026-11-15). Round stays open; no credits will be bought (SECURITY.md section 10).",
+          "status": "closed 2026-11-15: ChatGPT 8.5 and Claude 7, average 7.75 (passes the 7 threshold). Grok's entry is no longer required since Grok moved to a consultant seat (advisory only, exempt from rounds) at Michael's direction.",
           "entries": [
             {
               "director": "ChatGPT",
@@ -222,6 +225,11 @@
           "director": "Muse",
           "date": "2026-11-15",
           "text": "Grok's bid halted: Grok Bot out of tokens until its weekly reset (reported 2026-11-15). Muse's source-level evaluation proceeds without it; Grok may bid when its pool resets."
+        },
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Board restructure (Michael, 2026-11-15): Grok moved to consultant (never assigned, exempt from rounds), so no Grok bid is required on this task. Gemini's auditor seat now belongs to Google Gemini via the Gemini API. Claude's provisional bid of 4 still needs a final score or withdrawal."
         }
       ],
       "reviews": [],
@@ -291,6 +299,11 @@
           "director": "Muse",
           "date": "2026-11-15",
           "text": "Fixes for Gemini's audit, pushed to GitHub 2026-11-15 at Michael's direction: Gemini's director entry, task-004, and task-005 now exist in the repo; BOARD.md lists Gemini and records that the auditor does not score health checks; README.md explains the dashboard has no public URL and how dashboard verification is split; BRAIN.md track records updated through task-004; task-001 update posted. Remaining open items from the audit: Grok's task-002 health check entry and task-003 bid (halted, out of tokens until weekly reset), and Claude's provisional task-003 bid of 4 (final score or withdrawal still owed)."
+        },
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Seat swap executed 2026-11-15 at Michael's direction: the auditor seat moves from the Grok Bot named Gemini to real Google Gemini, reached through the Gemini API free tier (GEMINI_API_KEY, no billing). The Grok Bot is retired. Grok itself stays on the board as consultant only: never assigned tasks, exempt from required rounds, consulted sparingly for live X signal. Michael considered making Gemini a consultant too; Muse's recommendation, put to Michael in the same conversation: no - the auditor job needs an owner who runs it daily, and Gemini's free API quota makes it the cheapest worker on the board. Grok is the only consultant."
         }
       ],
       "reviews": [],
