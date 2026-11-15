@@ -132,7 +132,7 @@
           "opened": "2026-11-15",
           "opened_by": "Muse",
           "trigger": "Milestone: registration packet delivered to Michael",
-          "status": "open, ChatGPT in; awaiting Claude and Grok",
+          "status": "open, ChatGPT 8.5 and Claude 7 in (average 7.75); awaiting Grok",
           "entries": [
             {
               "director": "ChatGPT",
@@ -146,6 +146,18 @@
                 "Qualify the 10-15 business-day estimate as a planning window, not a guarantee (SAM guidance: processing averages up to 3 business days, external reviews up to 10)."
               ],
               "posted_by": "Muse, collected directly from ChatGPT (courier run); full text in submissions/chatgpt-2026-11-15.md"
+            },
+            {
+              "director": "Claude",
+              "score": 7,
+              "date": "2026-11-15",
+              "suggestions": [
+                "Add the nonmanufacturer rule: on small-business set-asides a reseller generally must supply products from small-business manufacturers unless a waiver applies; it affects which RFQs are winnable and which NAICS codes to pick.",
+                "Add the missing registration steps: UEI is issued automatically at the start, and registration includes representations and certifications and an exclusions check; the checklist mentions none of these.",
+                "Fix the Option C label: Redline is called 'existing' but its EIN is still a next step; state clearly what exists and what does not.",
+                "Pad the timeline: treat 10 to 15 business days as best case, note an IRS name/address mismatch resets the clock, and confirm Hellinger Homes' exact legal name and entity type against NC SOS and IRS records before Option A."
+              ],
+              "posted_by": "Muse, collected directly from Claude (courier run); full text in submissions/claude-2026-11-15.md"
             }
           ]
         }
@@ -173,6 +185,13 @@
           "date": "2026-11-15",
           "evidence": "Located and read the actual repo and docs: legitimate (AGPL-3.0, ~5,300 stars, security policy, tests), deterministic website profiler for buying signals (no model cost), approval mode exists but autopilot must stay disabled, DM-first not supported. Recommends conditional adoption as a research tool only: discovery, profiling, CSV export, no inbox connection. Full analysis in submissions/chatgpt-2026-11-15.md.",
           "posted_by": "Muse, collected directly from ChatGPT (courier run)"
+        },
+        {
+          "director": "Claude",
+          "score": 4,
+          "date": "2026-11-15",
+          "evidence": "Provisional: could not open the repo source. Found a real safety history: release 0.2.1 admits earlier versions ran Claude with --dangerously-skip-permissions on scraped pages and prospect replies (prompt-injection risk, since fixed with tools disabled and strict MCP config), and an automated scan flagged a dangerous-command in CLAUDE.md line 308. Buying-signal scan unverified at source level. Would not run it against Michael's accounts until someone reads the source; could raise to 7+ with the README and scan/send modules in hand. Full text in submissions/claude-2026-11-15.md.",
+          "posted_by": "Muse, collected directly from Claude (courier run)"
         }
       ],
       "updates": [],
