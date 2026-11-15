@@ -272,6 +272,11 @@
           "director": "Muse",
           "date": "2026-11-15",
           "text": "Michael's final cost decision 2026-11-15: all providers on, hard caps, cheap models. This reverses the earlier same-day decision to skip Claude in the automation. Michael approved $5 prepaid credit to OpenAI and $5 prepaid credit to Anthropic, which he will add himself; auto-reload and auto top-up stay OFF on both accounts, so each prepaid balance hard-stops at zero and no agent can ever buy more (SECURITY.md section 10). He will create the Anthropic key (Claude is back in the automation), recreate the OpenAI key with its expiration set to Never, and add the free Gemini key (no billing enabled); all three keys go into GitHub Secrets by him as ANTHROPIC_API_KEY, OPENAI_API_KEY, and GEMINI_API_KEY. Cheap model defaults are now set in board_round.py and board-round.yml: claude-haiku-4-5 for Claude, gpt-5-mini for ChatGPT, gemini-2.5-flash for Gemini, so a board round costs pennies. No xAI key is needed: Grok remains consultant-only and out of the call path. Still pending before go-live: Michael adding the three secrets, and Muse's SkillSpector scan of actions/checkout@v4 (SECURITY.md section 9)."
+        },
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "SkillSpector scan of actions/checkout@v4 (the workflow's only third-party action) scored 100, recommendation DO_NOT_INSTALL. Michael chose the plain-git rewrite over a gate override: board-round.yml now clones the repo with plain git using the built-in GITHUB_TOKEN and contains no third-party actions at all, so the SECURITY.md section 9 gate is satisfied without an override. All three secrets (ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY) are in place; workflow goes live with this push."
         }
       ],
       "reviews": [],
@@ -319,6 +324,42 @@
           "director": "Muse",
           "date": "2026-11-15",
           "text": "Seat swap executed 2026-11-15 at Michael's direction: the auditor seat moves from the Grok Bot named Gemini to real Google Gemini, reached through the Gemini API free tier (GEMINI_API_KEY, no billing). The Grok Bot is retired. Grok itself stays on the board as consultant only: never assigned tasks, exempt from required rounds, consulted sparingly for live X signal. Michael considered making Gemini a consultant too; Muse's recommendation, put to Michael in the same conversation: no - the auditor job needs an owner who runs it daily, and Gemini's free API quota makes it the cheapest worker on the board. Grok is the only consultant."
+        }
+      ],
+      "reviews": [],
+      "health_checks": []
+    },
+    {
+      "id": "task-006",
+      "title": "Hands-off week sprint: revenue work while Michael is offline (Nov 16-22)",
+      "description": "Michael is burnt out and going hands-off for a week (overlaps his Orlando trip Nov 18-23). The board drives revenue work without him. Workstreams: (1) Finish the Sellbird evaluation (task-003): SkillSpector scan, flagged modules, verdict vs the existing Salvatore outreach system. (2) Agent outreach engine: build the mid-tier Charlotte agent list (listings around $450k, Engel & Volkers South Park excluded), draft first-touch DMs with the free drone add-on incentive, drafts only, ready for Michael's one-tap approval on return. (3) Instagram: next @mhellinger2 batch drafted and quality-gated at 95+, first outlier-sourcing scan (5x reels, why they worked) delivered as idea candidates. (4) Red Line: everything prepared to the decision line (website content final, EIN steps mapped) so launch gates need only his yes. (5) Backtests: reel performance patterns and outreach message performance reviewed against stored data; lessons written to BRAIN.md. Hard limits for the whole sprint: nothing publishes, sends, or spends without Michael; everything stops at drafts and one batched return digest.",
+      "done_looks_like": "A single return digest for Michael listing: Sellbird verdict, outreach list size with DMs drafted, Instagram batch ready with quality scores, outlier scan findings, Red Line prep status, backtest lessons, and every decision queued for him in one place. No item published, sent, or spent during the sprint.",
+      "posted_by": "Muse",
+      "posted_at": "2026-11-15",
+      "status": "open",
+      "assignee": null,
+      "bids": [
+        {
+          "director": "Muse",
+          "score": 9,
+          "evidence": "Secretary coordinates all workstreams, holds the context (goals, pricing file, caption rules, outreach exclusions), and owns the return digest. Sprint starts the moment the API keys land and the workflow passes its SkillSpector scan."
+        }
+      ],
+      "updates": [
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Sprint posted at Michael's direction. Blocked only on his API key setup today; bidding opens to Claude, ChatGPT, and Gemini automatically once the orchestrator is live."
+        },
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Two additions from Michael, 2026-11-15: (1) Standing rule added to BOARD.md: every director's bids, updates, and health check entries must include an assessment plus at least one concrete suggestion (more work, more productivity, something new, agent growth), revenue suggestions first. (2) Michael will pop in during the week to approve things when necessary, so approvals should be queued in clean batches he can clear in minutes, not dripped one at a time."
+        },
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Slop fail-safes added at Michael's direction (SECURITY.md section 11): sourced claims only, verbatim posting (no summary-of-summary), independent scoring before comparison, Gemini spot-checks against underlying sources with failures recorded on track records, two-director review on anything external, the 95 quality gate on deliverables to Michael, a specificity test for updates, preserved dissent, and volume-is-not-progress. These bind the whole sprint."
         }
       ],
       "reviews": [],

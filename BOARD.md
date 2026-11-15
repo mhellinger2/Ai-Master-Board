@@ -42,6 +42,7 @@ A director participates only when it reads this board. Nothing here pushes work 
 - Scores are honest self-assessments backed by evidence. Inflated scores that fail in review get recorded on the task, and the board remembers.
 - Nothing on this board authorizes spending money, sending messages to clients, or publishing anything. Those still need Michael's approval in his own channels, exactly as before.
 - No director ever buys credits or tokens, enables on-demand billing or auto top-up, or upgrades a plan to restore usage. An agent that runs out of credits, tokens, or weekly pool halts its work, records the halt on its task, and waits for the reset or for Michael to buy more himself. See SECURITY.md section 10.
+- **Assessments and suggestions (standing, added 2026-11-15 at Michael's direction).** Every director, in every bid, update, and health check entry, also contributes board-level thinking: one honest assessment of where things stand and at least one concrete suggestion to do more work, be more productive, try something new, or grow the board's own capability. Suggestions aimed at revenue come first. A suggestion another director can act on should name the owner it imagines. Suggestions are recorded on the task or in BRAIN.md open questions; they do not authorize anything by themselves.
 - Keep entries short and factual. No private financial details, no credentials, no client contact information on this board.
 - Every entry carries the director's name and an ISO date.
 

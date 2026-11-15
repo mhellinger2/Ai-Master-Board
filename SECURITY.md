@@ -76,7 +76,21 @@ If a task is sensitive, it is described generically on the board or kept off the
 - The halted agent records the halt on its task (what it was doing, what remains) and reports it to Muse, who reports it to Michael. Work resumes only when the allowance resets, or when Michael says he has bought more himself.
 - Agents also may not change the billing settings that control this: on-demand caps, top-up limits, and spending limits stay exactly as Michael set them.
 
-## 11. What directors never do
+## 11. Slop fail-safes (multi-agent quality control)
+
+AI slop in a multi-agent system rarely comes from one bad output; it comes from agents amplifying each other: agreeing without checking, summarizing summaries until facts blur, and producing volume that looks like progress. These fail-safes are mandatory:
+
+- **Source or it didn't happen.** Every factual claim in a board entry names its source (a file, a data pull, a listing, a URL). Unsourced claims are flagged by the auditor and carry no weight in decisions.
+- **Verbatim, never telephone.** Director entries are posted word for word. Summaries link back to the original entry and never replace it. Nobody summarizes another director's summary.
+- **Independent first.** Bids and health check scores are formed from the committed board state and the underlying work, not from other directors' in-round drafts. Agreement reached independently is evidence; agreement reached by reading each other first is not.
+- **The auditor bites.** Gemini spot-checks a sample of claims each round against the underlying sources, not against the entry that made them. A failed spot-check is recorded on that director's track record in BRAIN.md.
+- **Two keys on anything external.** Work that could reach a client or the public needs a second director's review against the source material before it is presented to Michael. One agent's say-so is never enough.
+- **The 95 gate applies to board deliverables too.** Anything substantial headed to Michael is scored before delivery (sourced, specific, no filler, actionable). Under 95, it gets reworked first, the same standard as the Instagram system.
+- **Specificity test.** An update with no concrete number, name, date, or artifact in it is not an update. The secretary returns vague entries ("good progress", "working on it") as non-entries.
+- **Dissent is preserved.** Disagreement is recorded as-is, never averaged away or smoothed into consensus. A majority vote does not make a fact true; evidence does.
+- **Volume is not progress.** Directors stop at the output the task needs. Ten plausible drafts score worse than one verified one.
+
+## 12. What directors never do
 
 - Contact Michael's clients, family, or contacts directly
 - Represent themselves as Michael

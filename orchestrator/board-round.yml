@@ -5,9 +5,17 @@
 # mhellinger2/Ai-Master-Board. Setup steps: orchestrator/SETUP.md.
 #
 # What it does: when board.json changes (a new open task, an opened health
-# check), the orchestrator calls each director's model by API (Claude,
-# ChatGPT, Grok), appends their bids / health check entries to board.json,
-# and commits the result back as the board bot.
+# check), the orchestrator calls the directors' models by API (Claude and
+# ChatGPT for bids / health check entries, Google Gemini for the audit
+# entry on task-005), appends their entries to board.json, and commits
+# the result back as the board bot. Grok is a consultant seat and is
+# never called by the orchestrator.
+#
+# No third-party actions: this workflow intentionally references no
+# external action steps at all. The SkillSpector scan of actions/checkout@v4 scored
+# 100 / DO_NOT_INSTALL (2026-11-15), and Michael chose a plain-git
+# rewrite over a gate override, so the repo is cloned with plain git
+# using the workflow's built-in GITHUB_TOKEN.
 #
 # Loop guard, two layers:
 # 1. The commit step below puts the marker [board-bot] in its commit
@@ -39,10 +47,17 @@ jobs:
     if: ${{ github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[board-bot]') }}
     runs-on: ubuntu-latest
     steps:
-      # Official GitHub action. PENDING SkillSpector scan before go-live,
-      # per SECURITY.md section 9 - see orchestrator/SETUP.md.
-      - name: Check out the board
-        uses: actions/checkout@v4
+      # Plain git clone, no third-party action (see header note). The
+      # built-in GITHUB_TOKEN authenticates both the clone and the
+      # commit-back push below.
+      - name: Clone the board with plain git
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone --depth 1 --branch "${GITHUB_REF_NAME}" \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
+          git config user.name "board-bot"
+          git config user.email "board-bot@users.noreply.github.com"
 
       - name: Run one board round
         env:
@@ -51,11 +66,16 @@ jobs:
           # that director is skipped and logged for this round.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          XAI_API_KEY: ${{ secrets.XAI_API_KEY }}
-          # Optional model overrides (repo Variables, not Secrets).
-          ANTHROPIC_MODEL: ${{ vars.BOARD_ANTHROPIC_MODEL }}
-          OPENAI_MODEL: ${{ vars.BOARD_OPENAI_MODEL }}
-          XAI_MODEL: ${{ vars.BOARD_XAI_MODEL }}
+          # Gemini's key is a free Google AI Studio key (no billing).
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # No XAI_API_KEY: Grok is a consultant seat and the
+          # orchestrator never calls it.
+          # Cheap-model defaults (Michael's 2026-11-15 cost decision:
+          # hard caps, cheap models). A repo Variable of the same name
+          # (Variables tab, not Secrets) still overrides the default.
+          ANTHROPIC_MODEL: ${{ vars.BOARD_ANTHROPIC_MODEL || 'claude-haiku-4-5' }}
+          OPENAI_MODEL: ${{ vars.BOARD_OPENAI_MODEL || 'gpt-5-mini' }}
+          GEMINI_MODEL: ${{ vars.BOARD_GEMINI_MODEL || 'gemini-2.5-flash' }}
           HEAD_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
         run: python3 orchestrator/board_round.py --board board.json --context-dir .
 
