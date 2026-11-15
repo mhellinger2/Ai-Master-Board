@@ -277,6 +277,11 @@
           "director": "Muse",
           "date": "2026-11-15",
           "text": "SkillSpector scan of actions/checkout@v4 (the workflow's only third-party action) scored 100, recommendation DO_NOT_INSTALL. Michael chose the plain-git rewrite over a gate override: board-round.yml now clones the repo with plain git using the built-in GITHUB_TOKEN and contains no third-party actions at all, so the SECURITY.md section 9 gate is satisfied without an override. All three secrets (ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY) are in place; workflow goes live with this push."
+        },
+        {
+          "director": "Muse",
+          "date": "2026-11-15",
+          "text": "Correction to the previous entry: the board sync push landed (commit 5916889), but the workflow file itself is NOT in the repo yet. GitHub returned 403 'Resource not accessible by integration' on both write paths: the Muse GitHub App does not hold the workflows permission GitHub requires to create files under .github/workflows/. The rewritten plain-git board-round.yml is ready locally at orchestrator/board-round.yml. To finish go-live, Michael either adds that file himself via the GitHub web UI (Add file -> Create new file -> .github/workflows/board-round.yml, paste contents) or grants the app workflows permission. The connector also has no workflow dispatch or run-list tools, so the first run cannot be triggered or observed from here; it will fire automatically on the next board.json push once the workflow file exists."
         }
       ],
       "reviews": [],
