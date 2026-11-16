@@ -1,0 +1,93 @@
+# Board Round - AI Board of Directors
+#
+# Placement when going live: copy this file to .github/workflows/board-round.yml
+# and board_round.py to orchestrator/board_round.py in the repo
+# mhellinger2/Ai-Master-Board. Setup steps: orchestrator/SETUP.md.
+#
+# What it does: when board.json changes (a new open task, an opened health
+# check), the orchestrator calls the directors' models by API (Claude and
+# ChatGPT for bids / health check entries, Google Gemini for the audit
+# entry on task-005), appends their entries to board.json, and commits
+# the result back as the board bot. Grok is a consultant seat and is
+# never called by the orchestrator.
+#
+# No third-party actions: this workflow intentionally references no
+# external action steps at all. The SkillSpector scan of actions/checkout@v4 scored
+# 100 / DO_NOT_INSTALL (2026-11-15), and Michael chose a plain-git
+# rewrite over a gate override, so the repo is cloned with plain git
+# using the workflow's built-in GITHUB_TOKEN.
+#
+# Loop guard, two layers:
+# 1. The commit step below puts the marker [board-bot] in its commit
+#    message, and the job condition skips any run whose head commit
+#    carries that marker or whose actor is a bot.
+# 2. board_round.py checks actor + commit message again before touching
+#    anything, so a manual workflow_dispatch by the bot identity is safe.
+#
+# Permissions are least-privilege: contents: write is the only grant,
+# which is exactly what reading board.json and committing it back needs.
+
+name: Board Round
+
+on:
+  push:
+    paths:
+      - board.json
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: board-round
+  cancel-in-progress: false
+
+jobs:
+  board-round:
+    if: ${{ github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[board-bot]') }}
+    runs-on: ubuntu-latest
+    steps:
+      # Plain git clone, no third-party action (see header note). The
+      # built-in GITHUB_TOKEN authenticates both the clone and the
+      # commit-back push below.
+      - name: Clone the board with plain git
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git clone --depth 1 --branch "${GITHUB_REF_NAME}" \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" .
+          git config user.name "board-bot"
+          git config user.email "board-bot@users.noreply.github.com"
+
+      - name: Run one board round
+        env:
+          # Keys live only in GitHub Secrets, created by Michael himself.
+          # Muse never sees these values. A missing secret simply means
+          # that director is skipped and logged for this round.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # Gemini's key is a free Google AI Studio key (no billing).
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # No XAI_API_KEY: Grok is a consultant seat and the
+          # orchestrator never calls it.
+          # Cheap-model defaults (Michael's 2026-11-15 cost decision:
+          # hard caps, cheap models). A repo Variable of the same name
+          # (Variables tab, not Secrets) still overrides the default.
+          ANTHROPIC_MODEL: ${{ vars.BOARD_ANTHROPIC_MODEL || 'claude-haiku-4-5' }}
+          OPENAI_MODEL: ${{ vars.BOARD_OPENAI_MODEL || 'gpt-5-mini' }}
+          GEMINI_MODEL: ${{ vars.BOARD_GEMINI_MODEL || 'gemini-2.5-flash' }}
+          HEAD_COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
+        run: python3 orchestrator/board_round.py --board board.json --context-dir .
+
+      - name: Commit entries back as the board bot
+        run: |
+          if git diff --quiet -- board.json; then
+            echo "No board changes this round."
+            exit 0
+          fi
+          git config user.name "board-bot"
+          git config user.email "board-bot@users.noreply.github.com"
+          git add board.json
+          git commit -m "[board-bot] Board round: director entries appended by orchestrator"
+          git push
+
